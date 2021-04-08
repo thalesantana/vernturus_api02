@@ -1,9 +1,9 @@
-const { config } = require('node:process');
+const  config  = require('config');
 const Sequelize = require('sequelize');
 
 const instancia = new Sequelize(
     config.get('mysql.database'),
-    config.get('mysql.user'),
+    config.get('mysql.username'),
     config.get('mysql.password'),
     {
         host:config.get('mysql.host'),
@@ -11,3 +11,5 @@ const instancia = new Sequelize(
         dialect: 'mysql'
     }
 );
+
+module.exports  = instancia
