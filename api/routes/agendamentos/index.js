@@ -8,7 +8,7 @@ router.get('/agendamentos', async (req, res) =>{
     try{
         const results = await TabelaAgemento.listar()
         const serializador = new SerializadorAgendamento(
-            res.getHeader('Content-Types'),
+            res.getHeader('Content-Type'),
             ['nome_servico', 'status']
         );
         agendamentos = serializador.transformar(results)

@@ -18,9 +18,10 @@ class Serializar {
         const camposFiltrados = {};
         this.camposPermitidos.forEach((campo)=>{
             if(dados.hasOwnProperty(campo)){
-                camposFiltrados[campos] = dados[campo];
+                camposFiltrados[campo] = dados[campo];
             }
         });
+        return camposFiltrados;
     };
 
     filtrar(dados){
