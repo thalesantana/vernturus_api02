@@ -1,4 +1,4 @@
-const TabelaAgemento = require('../agendamentos/TabelaAgendamento')
+const TabelaAgendamento = require('../agendamentos/TabelaAgendamento')
 class Agendamento {
     constructor(
         {
@@ -22,7 +22,7 @@ class Agendamento {
         }
 
         async criar(){
-            const result = await TabelaAgemento.adicionar({
+            const result = await TabelaAgendamento.adicionar({
                 nome_cliente:this.nome_cliente,
                 nome_servico:this.nome_servico,
                 status:this.status,
@@ -34,7 +34,7 @@ class Agendamento {
         }
 
         async buscar(){
-            const result = await TabelaAgemento.buscarPorPK(this.id);
+            const result = await TabelaAgendamento.buscarPorPK(this.id);
             this.nome_cliente = result.nome_cliente;
             this.nome_servico = result.nome_servico;
             this.status = result.status;
@@ -44,7 +44,23 @@ class Agendamento {
         }
 
         async remover() {
-            await TabelaAgemento.remover(this.id)
+            await TabelaAgendamento.buscarPorPK(this.id);
+            await TabelaAgendamento.remover(this.id)
+        }
+        
+        async atualizar(){
+                await TabelaAgendamento.buscarPorPK(this.id);
+                const camposAtualizaveis = ['nome_cliente', 'nome_servico', 'status', 'data_agendamento']
+                const dadosAtualizar = {}
+
+                camposAtualizaveis.forEach((campo) => {
+                    const valor = this[campo];
+                    if(typeof valor == 'string' && valor.length >0){
+                        dadosAtualizar[campo] = valor
+                    }
+                })
+
+                await TabelaAgendamento.atualizar(this.id, dadosAtualizar)      
         }
 }
 
