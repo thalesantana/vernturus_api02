@@ -11,7 +11,7 @@ class Serializar {
         }
          return this.json(
              this.filtrar(dados)
-             );
+        );
     }
 
     filtrarCampos(dados){
@@ -46,8 +46,21 @@ class SerializarAgendamento extends Serializar{
     }
 }
 
+class SerializarErro extends Serializar{
+    constructor(contentType, camposPersonalizados){
+        super();
+        this.contentType = contentType;
+        this.camposPermitidos = [
+            'id', 'mensagem'
+        ].concat(camposPersonalizados || [])
+        this.tag = 'Error';
+        this.tagList = 'Erros';
+    }
+}
+
 module.exports = {
     Serializar: Serializar,
     SerializarAgendamento: SerializarAgendamento,
+    SerializarErro: SerializarErro,
     FormatoValidos : ['application/json']
 }
