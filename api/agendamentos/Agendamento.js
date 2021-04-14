@@ -1,6 +1,7 @@
 const TabelaAgendamento = require('../agendamentos/TabelaAgendamento')
 const CampoInvalido = require('../errors/CampoInvalido')
 const DadosNaoInformados = require('../errors/DadosNaoInformados')
+const NaoEncontrado = require('../errors/NaoEncontrado')
 class Agendamento {
     constructor(
         {
@@ -38,6 +39,9 @@ class Agendamento {
 
         async buscar(){
             const result = await TabelaAgendamento.buscarPorPK(this.id);
+
+            if(!result){ throw new NaoEncontrado()}
+            
             this.nome_cliente = result.nome_cliente;
             this.nome_servico = result.nome_servico;
             this.status = result.status;

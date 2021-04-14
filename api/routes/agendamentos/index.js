@@ -53,7 +53,7 @@ router.post('/agendamentos', async (req,res, next) => {
 router.delete('/agendamentos/:id', async(req, res, next) => {
     try{
         const id = req.params.id
-        const agendamento = await new Agendamento({id:id})
+        const agendamento = new Agendamento({id:id})
         await agendamento.remover();
         res.status(204)
     } catch (error) {
