@@ -9,7 +9,7 @@ class Serializar {
         if(Array.isArray(dados)){
             dados = dados.map((item) => {
                 return  {
-                    [this.tag] : item
+                    [this.tag]:item
                 }
             })
             this.tag = this.tagList
@@ -81,7 +81,7 @@ class SerializarErro extends Serializar{
 }
 
 class SerializarUser extends Serializar {
-    constructor(){
+    constructor(contentType, camposPersonalizados){
         super();
         this.contentType = contentType;
         this.camposPermitidos = [
@@ -96,6 +96,6 @@ module.exports = {
     Serializar: Serializar,
     SerializarAgendamento: SerializarAgendamento,
     SerializarErro: SerializarErro,
-    SerializarUser:SerializarUser,
+    SerializarUser: SerializarUser,
     FormatoValidos : ['application/json', 'application/xml']
 }
