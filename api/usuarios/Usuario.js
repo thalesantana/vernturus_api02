@@ -57,7 +57,7 @@ class Usuario {
         this.data_atualizacao = result.data_atualizacao;
     };
     async atualizar(){
-        await TabelaUsuario.buscarPorPk(this.id);
+        let result =  await TabelaUsuario.buscarPorPk(this.id);
         if(!result){
             throw new NaoEncontrado('Usuario')
         }
