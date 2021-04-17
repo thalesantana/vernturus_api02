@@ -1,7 +1,7 @@
-const TabelaAgendamento = require('../agendamentos/TabelaAgendamento')
-const CampoInvalido = require('../errors/CampoInvalido')
-const DadosNaoInformados = require('../errors/DadosNaoInformados')
-const NaoEncontrado = require('../errors/NaoEncontrado')
+const TabelaAgendamento = require('../../models/agendamentos/TabelaAgendamento')
+const CampoInvalido = require('../../errors/CampoInvalido')
+const DadosNaoInformados = require('../../errors/DadosNaoInformados')
+const NaoEncontrado = require('../../errors/NaoEncontrado')
 class Agendamento {
     constructor(
         {

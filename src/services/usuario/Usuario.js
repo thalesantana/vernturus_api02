@@ -1,9 +1,9 @@
-const TabelaUsuario = require('./TabelaUsuario');
-const CampoInvalido = require('../errors/CampoInvalido')
-const CamposQtdMinima = require('../errors/CamposQtdMinima')
-const CampoQtdMaxima = require('../errors/CampoQtdMaxima')
-const DadosNaoInformados = require('../errors/DadosNaoInformados')
-const NaoEncontrado = require('../errors/NaoEncontrado')
+const TabelaUsuario = require('../../models/usuarios/TabelaUsuario');
+const CampoInvalido = require('../../errors/CampoInvalido')
+const CamposQtdMinima = require('../../errors/CamposQtdMinima')
+const CampoQtdMaxima = require('../../errors/CampoQtdMaxima')
+const DadosNaoInformados = require('../../errors/DadosNaoInformados')
+const NaoEncontrado = require('../../errors/NaoEncontrado')
 const bcrypt = require('bcrypt');
 class Usuario {
     constructor({id, nome, email,senha,data_criacao, data_atualizacao}){

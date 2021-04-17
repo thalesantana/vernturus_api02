@@ -1,4 +1,4 @@
-const modeloAgendamento = require('./modelTabelaAgendamento');
+const modeloAgendamento = require('../../models/agendamentos/modelTabelaAgendamento');
 
 module.exports = {
     async listar() {

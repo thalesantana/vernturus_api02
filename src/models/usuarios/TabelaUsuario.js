@@ -31,7 +31,7 @@ module.exports = {
 
     async buscarPorEmail(email) {
         try{
-            usuario = await modeloUsuario.findeOne({
+            usuario = await modeloUsuario.findOne({
                 where: {
                     email: email
                 }
